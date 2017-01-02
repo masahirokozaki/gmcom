@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>コミュニティ一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comms.each do |comm| %>
+      <tr>
+        <td><%= comm.name %></td>
+        <td><%= comm.image %></td>
+        <td><%= comm.content %></td>
+        <td><%= link_to 'Show', comm %></td>
+        <td><%= link_to 'Edit', edit_comm_path(comm) %></td>
+        <td><%= link_to 'Destroy', comm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comm', new_comm_path %>

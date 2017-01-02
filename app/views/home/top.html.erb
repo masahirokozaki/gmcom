@@ -1,0 +1,10 @@
+  <aside class="sidebar">
+  	<% if user_signed_in? %>
+    	<%= render '/users/profile' %>
+    <% end %>
+  </aside>
+  <ul class="notes">
+    <h2>ゲーム音楽情報</h2>
+    <p class="alert alert-success"><%= notice %></p>
+    <%= render @notes %>
+  </ul>

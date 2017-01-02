@@ -1,0 +1,30 @@
+<%= form_for(@comm) do |f| %>
+  <% if @comm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comm.errors.count, "error") %> prohibited this comm from being saved:</h2>
+
+      <ul>
+      <% @comm.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

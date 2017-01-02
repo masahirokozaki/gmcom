@@ -1,0 +1,13 @@
+<li>
+  <span class="content">
+   <h2><%= link_to note.title, note_path(note.id) %></h2>
+  </span>
+  <span class="user-name">
+  	<% if user_signed_in? %>
+  		投稿者：<%= link_to note.user.name, note.user %>
+    <% end %>
+  </span>
+  <span>
+    <%= note.created_at.strftime("%Y-%m-%d %H:%M") %>
+  </span>
+</li>

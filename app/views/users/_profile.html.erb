@@ -1,0 +1,41 @@
+<aside class="sidebar">
+  <!-- プロフィール画像 -->
+  <section>
+    <h3 class="user-info">
+      <%= image_for(@user) %>
+    </h3>
+  </section>	
+
+  <!-- ユーザ名 -->
+  <section>
+    <span class="label">ユーザー</span>
+    <h3 class="user-info"><%= @user.name %></h3>
+  </section>
+
+  <!-- メールアドレス -->  
+  <section>
+    <span class="label">メールアドレス</span>
+    <h3 class="user-info"><%= @user.email %></h3>
+  </section>
+
+  <!-- 好きな作曲家 -->  
+  <section>
+    <span class="label">好きな作曲家</span>
+    <h3 class="user-info"><%= @user.fav_cmp1 %></h3>
+    <h3 class="user-info"><%= @user.fav_cmp2 %></h3>
+    <h3 class="user-info"><%= @user.fav_cmp3 %></h3>
+  </section>  
+  
+  <!-- フリーコメント -->  
+  <section>
+  	<span class="label">コメント</span>
+    <h3 class="user-info"><%= @user.cmt %></h3>
+  </section>    
+  
+  <!-- プロフィール編集 -->  
+ <% if current_user?(@user) %>
+  <section>
+    <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
+  </section>
+<% end %>  
+</aside>
