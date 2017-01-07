@@ -1,4 +1,8 @@
-<aside class="sidebar">
+  <!-- 管理者モードの表示 -->
+  <% if can? :manage, User %>
+  	<h1><font color="FF0000">Administrator</font></h2>
+  <% end %>	
+	
   <!-- プロフィール画像 -->
   <section>
     <h3 class="user-info">
@@ -37,5 +41,4 @@
   <section>
     <small><%= link_to 'プロフィールを編集', edit_user_path(@user) %></small>
   </section>
-<% end %>  
-</aside>
+<% end %>

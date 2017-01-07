@@ -36,6 +36,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # ===========================================
 gem 'devise', '3.5.1'
+gem 'cancancan'
+
 group :development, :test do
   gem 'hirb'
   gem 'hirb-unicode'

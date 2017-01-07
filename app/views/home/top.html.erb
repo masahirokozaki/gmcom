@@ -2,6 +2,9 @@
   	<% if user_signed_in? %>
     	<%= render '/users/profile' %>
     <% end %>
+    <% if can? :manage, User %>
+		<%= render '/notes/form' %>
+	<% end %>  
   </aside>
   <ul class="notes">
     <h2>ゲーム音楽情報</h2>
