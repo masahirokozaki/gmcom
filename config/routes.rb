@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
   resources :comms
   devise_for :users
+  
+  # users
   resources :users, only: [:index, :show, :edit, :update]
-  get 'home/top'
 
+  # notes
+  delete '/notes/:id' => 'notes#destroy', as:'destroy_note' # Todo 要リファクタリング。link_to(medhod指定はdelete)が何故かgetで動くため
   resources :notes, only: [:show, :create, :edit, :update, :destroy]
+  
+  # その他  
   root 'home#top'
+  get 'home/top'
   get '/about' => 'home#about'
   
+  # comm_user
   patch '/comms_users/:id' =>'comms_users#update', as:'update_comm_user'
   delete '/comms_users/:id' =>'comms_users#destroy', as:'destroy_comm_user'
-  
   resources :comms_users, only: [:index, :show, :edit, :update, :destroy]
   
   

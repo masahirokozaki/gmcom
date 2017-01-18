@@ -29,7 +29,9 @@ class NotesController < ApplicationController
 
   def destroy
     @note.destroy
-    redirect_to notes_path
+    logger.debug "=================="
+    logger.debug @note.id
+    redirect_to root_path
   end
   
 private
