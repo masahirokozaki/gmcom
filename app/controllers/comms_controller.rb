@@ -55,7 +55,11 @@ class CommsController < ApplicationController
   # DELETE /comms/1
   # DELETE /comms/1.json
   def destroy
+    # コミュニティの削除
     @comm.destroy
+    # コミュニティ-ユーザ中間テーブルから上記idに紐づくものを削除
+    CommUser.destroy_all(comm_id: @comm.id) if CommUser.find_by(comm_id: @comm.id)
+          
     respond_to do |format|
       format.html { redirect_to comms_url, notice: 'Comm was successfully destroyed.' }
       format.json { head :no_content }
